@@ -62,9 +62,9 @@
 	let currentSpeed = 0;
 	let averageSpeed = 0;
 	let lastPosition: { lat: number; lon: number; timestamp: number } | null = null;
-	let maxSpeedKmph = 15;
+	let maxSpeedKmph = 999999;
 
-	let accessToken = 'REPLACE_ME__BUDDY';
+	let accessToken = 'pk.eyJ1IjoiYnloYWwiLCJhIjoiY200cDR5ZW8xMGZxeTJ2cTYxbzB0cmhkNyJ9.UkxpIs5msVDnCuG7ef9w_g';
 
 	// Variables for average speed detection
 	let speedBuffer: number[] = [];
@@ -219,7 +219,6 @@
 					showSpeedWarning = true;
 					const street = await reverseGeocode(lat, lon);
 					const coordinates = `${lat}, ${lon}`;
-					await reportSpeeding(street, coordinates, averageSpeed);
 
 					// Clear warning after 5 seconds
 					setTimeout(() => {
@@ -345,9 +344,9 @@
 				Highest recorded speed: <span class="inline-block rounded-md bg-red-300 p-1 text-black">
 					{formatSpeed(averageSpeed)}
 				</span>
-				Police has been <span class="text-red-600">NOTIFIED</span>.
+				You are <span class="text-red-600">SPEEDING</span>.
 			{:else}
-				You're moving at a safe speed. Keep it up!
+				
 			{/if}
 		</AlertDescription>
 	</Alert>
