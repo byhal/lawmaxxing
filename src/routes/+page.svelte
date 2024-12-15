@@ -346,7 +346,7 @@
 				</span>
 				You are <span class="text-red-600">SPEEDING</span>.
 			{:else}
-				
+				 
 			{/if}
 		</AlertDescription>
 	</Alert>
